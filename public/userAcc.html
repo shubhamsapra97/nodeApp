@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>NodeFi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body data-title='userAcc'>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div id="nav-left" class="navyLeft">
+                <img class="navbar-brand" src="images/insta.webp">
+                <a class="navbar-brand" href="#">| NodeFi</a>
+            </div>
+
+            <div class="nav navbar-right navyRight" id="nav-right">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle dropbtn" id="dropdownMenuButton">
+                        <span id="settingsText">Settings</span><img src="images/loader2.webp" id="backPicLoad" />
+                    </button>
+                    <div class="dropdown-content">
+                        <a id="LogOut">LogOut</a>
+                        <label for="BackgroundfileUpload" class="file-upload1">
+                            <a id="BackgroundPic">Background Pic</a>
+                        </label>
+                        <input id="BackgroundfileUpload" type="file" />
+                        <a id="DeleteAcc">Delete Account</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="header">
+
+    </div>
+
+    <div id="Posts">
+    </div>
+    
+    <div id="morePostDiv">
+        <img src="images/loader2.webp" id="morePostsLoad" />
+    </div>
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <div id="SidebarInfo">
+            <img class="backImage" src="{{backPic}}" alt='image'>
+            <img class="userDp img-circle" src="{{dp}}">
+            <div class="below">
+                <div class="username1"><span>{{user}}</span>
+                </div>
+                <br>
+                <div class="status">
+                    <div><span id="userStatus" title="Double Tap">{{status}}</span>
+                    </div>
+                    <div class="form-group inputStatus1">
+                        <input type="text" class="form-control" id="inputStatus" autofocus placeholder="Update Status" name="status" maxlength="25">
+                        <img class="inputClose" src="images/close.webp">
+                        <i class="fa fa-times-circle-o inputClose" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="information">
+                <div class="userPosty">
+                    <span class="heading1">Posts</span>
+                    <br>
+                    <span class="shift">{{posts}}</span>
+                </div>
+                <div class="vr"></div>
+                <div class="followers">
+                    <span class="heading1">followers</span>
+                    <br>
+                    <span class="shift1">78</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="about">
+            <span id="heads">About</span>
+            <a tabindex="0" class="updateProfile">Edit</a>
+            <div class="top">
+                <div id="location">
+                    <img class="icon" src="images/calendar.png">
+                    <span class="aboutData">Lives in <span class="blue">{{location}}</span></span>
+                </div>
+                <div id="bday">
+                    <img class="icon" src="images/bday.png">
+                    <span class="aboutData">Born On <span class="blue">{{bday}}</span></span>
+                </div>
+                <div id="work">
+                    <img class="icon" src="images/briefcase.webp">
+                    <span class="aboutData">Work at <span class="blue">{{work}}</span></span>
+                </div>
+                <div id="bio">
+                    <img class="icon" src="images/user1.webp">
+                    <span class="aboutData">I am <span class="blue">{{qualities}}</span></span>
+                </div>
+                <div id="contact">
+                    <img class="icon" src="images/phone.png">
+                    <span class="aboutData">Call me on <span class="blue">{{contact}}</span></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <script id="post-template" type="text/x-handlebars-template">
+        <div id="overlay">
+            <div id="text">Overlay Text</div>
+        </div>
+        <div class="userPosts">
+            <img src="{{url}}" class="img-responsive OnePost">
+        </div>
+    </script>
+
+    <script src="/js/libs/jquery-3.1.1.min.js"></script>
+    <script src="/js/libs/socket.js"></script>
+    <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script defer src="/js/libs/mustache.js"></script>
+    <script src="/js/libs/deparam.js"></script>
+    <script src="/js/javascript.js" type="text/javascript"></script>
+</body>
+
+</html>
